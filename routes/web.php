@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('implementation', 'ImplementationController');
+Route::resource('student', 'StudentController');
+Route::resource('user', 'UserController');
+Route::resource('jiri', 'JiriController');
+Route::resource('impression', 'ImpressionController');
+Route::resource('project', 'ProjectController');
+Route::resource('score', 'ScoreController');
+Route::resource('performance', 'PerformanceController');
+Route::resource('person', 'PersonController');
