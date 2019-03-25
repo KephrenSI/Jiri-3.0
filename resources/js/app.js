@@ -21,6 +21,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('password-input', require('./components/PasswordInput.vue').default);
+Vue.component('confirm-password-input', require('./components/ConfirmPasswordInput.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

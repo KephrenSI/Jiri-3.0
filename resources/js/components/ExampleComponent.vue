@@ -1,16 +1,10 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <p>
+            <input type="text" v-model="name">
+            <input type="checkbox" v-model="checkbox">
+        </p>
+        <p>Bonjour {{name}} !</p>
     </div>
 </template>
 
@@ -18,6 +12,12 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+        data() {
+            return{
+                'name' : 'Thibault',
+                'checkbox' : true
+            }
+        },
     }
 </script>

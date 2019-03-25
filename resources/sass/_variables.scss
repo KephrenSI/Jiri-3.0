@@ -1,11 +1,22 @@
 
 // Body
-$body-bg: #f8fafc;
+$body-bg: #ffffff;
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
+$font-family-sans-serif: "Rubik", sans-serif;
+$font-size-base: 16;
 $line-height-base: 1.6;
+
+
+$h1: 3.052em;
+$subH1: 2.441em;
+$h2: 1.953em;
+$subH2: 1.563em;
+$h3: 1.25em;
+$text: 1em;
+$subText: 0.8em;
+$subsubText: 0.64em;
+$subsubsubText:0.512em;
 
 // Colors
 $blue: #3490dc;
@@ -18,3 +29,9 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+
+$lightGreen: #38EF7D;
+$darkGreen: #11998E;
+$white: #FFFFFF;
+$black: #A4A4A4;
