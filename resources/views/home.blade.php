@@ -20,5 +20,5 @@
         {{--</div>--}}
     {{--</div>--}}
 {{--</div>--}}
-<example-component></example-component>
+    <App></App>
 @endsection

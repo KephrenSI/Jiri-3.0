@@ -14,7 +14,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto" style="position:absolute; z-index: 10;">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -48,3 +48,4 @@
         </div>
     </div>
 </nav>
+

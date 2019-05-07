@@ -12,13 +12,45 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Design
+@import 'header';
+@import 'footer';
 @import 'login';
 @import 'form';
+@import 'asideNav';
+@import 'list';
+@import 'add';
+@import 'search';
 
 html, body, #app{
   height: 100%;
 }
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.heading1,
+.heading2,
+.heading3,
+.heading4{
+  margin-bottom: 1em;
+}
+main{
+  margin-left: $asideNavWidth;
+}
+.hidden {
+//  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+}
+.notEmpty{
+  display: none;
+}
+.superGlobal{
+  padding-top: $headerHeight;
+}
+.contentView{
+  padding: 1em;
+}
+.loginErrors{
+  color: $red;
+  display: block;
+  text-align: center;
+  font-size: $subText;
+  margin-bottom: 1em;
 }

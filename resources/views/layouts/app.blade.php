@@ -20,11 +20,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <h1 class="heading1 hidden" role="heading" aria-level="1">Jiri</h1>
     <div id="app">
-        @include('partials/topNav')
-        <main>
-            @yield('content')
-        </main>
+        {{--@include('partials/topNav')--}}
+        @yield('content')
     </div>
 </body>
 </html>

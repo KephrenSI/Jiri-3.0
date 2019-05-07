@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <input id="password" :type="show ? 'text' : 'password'" name="password" class="labelInput__input input" required>
+        <input id="password" :type="show ? 'text' : 'password'" name="password" class="labelInput__input input">
         <button type="button" @click="show = ! show" class="labelInput__input--icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" x="0px" y="0px" viewBox="0 0 512 512" v-show="! show">
                 <g>
@@ -78,6 +78,6 @@
             return {
                 show : false,
             }
-        }
+        },
     }
 </script>

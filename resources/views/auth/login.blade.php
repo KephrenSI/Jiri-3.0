@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="loginContainer">
-    <div class="loginContainer__filter">&nbsp;</div>
+<section class="loginContainer">
+    <h2 class="heading2 hidden" role="heading" aria-level="2">Page de connexion</h2>
+    <div class="loginContainer__filter">
+        <span class="notEmpty">&nbsp;</span>
+    </div>
 
     <div class="globalCard">
         <div class="intro">
@@ -18,7 +21,7 @@
 
                     <div class="labelInput">
                         <label for="email" class="labelInput__label label">{{ __('Adresse mail') }}</label>
-                        <input id="email" type="email" class="labelInput__input input" name="email" value="{{ old('email') }}" required autofocus>
+                        <input id="email" type="email" class="labelInput__input input" name="email" value="{{ old('email') }}">
                     </div>
 
                     <div class="labelInput">
@@ -37,6 +40,9 @@
                         <button type="submit" class="labelInput__button">
                             {{ __('Connexion') }}
                         </button>
+                        <span class="loginErrors">
+						    {{ $errors->first() }}
+					    </span>
                         @if (Route::has('password.request'))
                             <a class="labelInput__link" href="{{ route('password.request') }}">
                                 {{ __('Mot de passe oublié ?') }}
@@ -47,5 +53,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

@@ -33,5 +33,15 @@ $cyan: #6cb2eb;
 
 $lightGreen: #38EF7D;
 $darkGreen: #11998E;
+$lightGrey: #F8F8F8;
+$darkGrey: #A4A4A4;
+$grey: #E8E8E8;
 $white: #FFFFFF;
-$black: #A4A4A4;
+$black: #4A4A4A;
+
+// Measures
+$headerHeight: 80px;
+$asideNavMarginTop: calc(#{$headerHeight} + #{$text});
+
+$asideNavWidth: 250px;
+$mainMarginLeft: $asideNavWidth;
