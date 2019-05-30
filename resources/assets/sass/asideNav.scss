@@ -1,0 +1,125 @@
+.asideLeft{
+  padding-top: $asideNavMarginTop;
+  padding-bottom: 3em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: $lightGrey;
+  height: 100%;
+  width: 250px;
+  z-index: 0;
+}
+.user{
+  border-bottom: 0.1px solid $darkGrey;
+  padding-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  &__userPic{
+    width: 30%;
+    height: auto;
+    padding: 5px;
+    border-radius: 50%;
+    border: 2px solid $darkGreen;
+    margin-right: 5%;
+  }
+  &__userInfos{
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    &--name{
+      margin-bottom: 0.5em;
+      font-size: $h3;
+      width: 100%;
+      line-height: 1.2em;
+    }
+    &--company{
+      margin-bottom: 0;
+      width: 100%;
+      font-weight: 100;
+      font-size: $text;
+      color: $darkGrey;
+    }
+  }
+  &__links{
+    margin-top: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &--logout{
+      display: flex;
+      color: $black;
+      fill: $black;
+      transition:all 0.5s ease-in-out;
+      font-weight: 100;
+      &:hover,
+      &:focus{
+        color: black;
+        text-decoration: none;
+      }
+      &:hover svg,
+      &:focus svg{
+        margin-left: -0.3em;
+        margin-right: 0.5em;
+        fill: black;
+      }
+      svg{
+        vertical-align: top;
+        position: relative;
+        top: 4.5px;
+        transition:all 0.5s ease-in-out;
+        width: 15px;
+        height: 15px;
+        margin-right: 0.2em;
+        transform: rotate(180deg);
+      }
+    }
+    &--modify{
+      padding: 0.5em;
+      text-align: right;
+      color: $darkGrey;
+      font-size: $subText;
+      transition:all 0.5s ease-in-out;
+      &:hover,
+      &:focus{
+        color: $darkGreen;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.asideNav{
+  margin-top: 2em;
+  &__el{
+    margin: 0 0.5em 5px;
+    &--link{
+      color: $darkGreen;
+      display: inline-block;
+      width: 100%;
+      padding: 1em 2em;
+      transition:all 0.5s ease-in-out;
+      &:hover,
+      &:focus{
+        background-color: $grey;
+        border-radius: 5px;
+        color: $darkGreen;
+        //color: $lightGreen;
+        //fill: $lightGreen;
+        text-decoration: none;
+      }
+      &:hover img,
+      &:focus img{
+        //fill: $lightGreen;
+      }
+    }
+    &--icon {
+      display: inline-block;
+      fill: $darkGreen;
+      margin-right: 1em;
+      transition:all 0.5s ease-in-out;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

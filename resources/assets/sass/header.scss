@@ -1,0 +1,20 @@
+.header{
+  height: $headerHeight;
+  z-index: 1;
+  background: #11998e; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #11998e 0%, #38ef7d 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #11998e 0%,#38ef7d 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #11998e 0%,#38ef7d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11998e', endColorstr='#38ef7d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  &__logo{
+
+  }
+}

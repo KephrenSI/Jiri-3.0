@@ -22,8 +22,13 @@
 <body>
     <h1 class="heading1 hidden" role="heading" aria-level="1">Jiri</h1>
     <div id="app">
-        {{--@include('partials/topNav')--}}
+        @if (Auth::check())
+            @include('partials/header')
+        @endif
         @yield('content')
+        @if (Auth::check())
+            @include('partials/footer')
+        @endif
     </div>
 </body>
 </html>

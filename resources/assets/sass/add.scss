@@ -1,0 +1,135 @@
+.contentAddForm.is-active {
+  display: block;
+  position: fixed;
+  background-color: $white;
+  border-radius: 15px;
+  padding: 2em;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 80%;
+  z-index: 3;
+}
+.contentAddForm{
+  display: none;
+  .close{
+    transition: all 0.5s ease-in-out;
+    fill: $black;
+    margin-bottom: 1.5em;
+    div{
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .card-head{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-body{
+    padding: 0;
+  }
+}
+.addForm{
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 3em;
+  //margin-bottom: 3em;
+  //border-bottom: 0.1px solid $darkGrey;
+  &__labelInput {
+    position: relative;
+    width: 47.5%;
+    &:last-child{
+      width: 100%;
+    }
+    &:nth-child(2n+2){
+      margin-left: 5%;
+    }
+    &--label {
+      position: absolute;
+      top: -0.8em;
+      left: 10px;
+      background-color: $white;
+      padding: 0px 10px;
+    }
+    &--input {
+      height: 40px;
+      text-indent: 10px;
+      margin-bottom: 2em;
+      width: 100%;
+      border: double 1px transparent;
+      border-radius: 5px;
+      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+    &--textarea {
+      height: 40px;
+      text-indent: 10px;
+      margin-bottom: 2em;
+      width: 100%;
+      border: double 1px transparent;
+      border-radius: 5px;
+      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+    &--select {
+      height: 40px;
+      text-indent: 10px;
+      margin-bottom: 2em;
+      width: 100%;
+      border: double 2px transparent;
+      border-radius: 5px;
+      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+    .addList{
+      background-color: $lightGrey;
+      border-radius: 5px;
+      padding: 1em;
+      &__el{
+        background-color: $white;
+        border-radius: 5px;
+        padding: 0.5em;
+        &--item{
+          display: flex;
+          justify-content: space-between;
+          p{
+            margin: 0;
+          }
+          a{
+            color: $red;
+            fill: $red;
+          }
+          div{
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+    }
+    &--fileLabel{
+
+    }
+    &--fileInput{
+
+    }
+    &--button {
+      float: right;
+      min-width: 200px;
+      border: transparent;
+      color: $white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background: #11998e; /* Old browsers */
+      background: -moz-linear-gradient(-45deg, #11998e 0%, #38ef7d 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(-45deg, #11998e 0%,#38ef7d 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(135deg, #11998e 0%,#38ef7d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11998e', endColorstr='#38ef7d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+  }
+}

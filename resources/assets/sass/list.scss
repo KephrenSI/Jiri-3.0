@@ -1,0 +1,89 @@
+.list{
+  &__link{
+    color: inherit;
+    &:hover{
+      text-decoration: none;
+      color: inherit;
+      li{
+        border: 2px solid $grey;
+        background-color: $grey;
+      }
+    }
+  }
+
+  &__el{
+    border: 2px solid $lightGrey;
+    background-color: $lightGrey;
+    border-radius:10px;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition:all 0.5s ease-in-out;
+    margin-bottom: 5px;
+    &--infos{
+      margin-bottom: 0;
+      color: $darkGrey;
+    }
+    &--name{
+      font-weight: 600;
+      font-size: $h3;
+      color: inherit;
+    }
+    &--academicYear{
+      font-size: $subText;
+    }
+    &--session{
+      font-size: $subText;
+    }
+    &--date{
+      font-size: $subText;
+    }
+    &--dateIcon{
+      margin-left: 0.2em;
+      fill: $darkGrey;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+    &--status{
+      font-size: $subText;
+    }
+    &--pic{
+      width: 50px;
+      padding: 5px;
+      border-radius: 50%;
+      border: 2px solid $darkGreen;
+    }
+    &--description{
+      font-size: $subText;
+    }
+    &--email{
+      font-size: $subText;
+    }
+    &--agency{
+      font-size: $subText;
+    }
+    &--modify{
+      fill: $blue;
+      padding: 0.5em;
+      div{
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &--delete{
+      fill: $red;
+      padding: 0.5em;
+      div{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+.listFutur{
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 0.1px solid $darkGrey ;
+}

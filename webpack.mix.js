@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,15 +11,29 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
  |
  */
 
-mix .js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .copyDirectory('resources/images', 'public/images')
+mix
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .copyDirectory('resources/assets/img', 'public/images')
+    .sourceMaps()
+    .webpackConfig({
+        resolve: {
+            extensions: [
+                '.js',
+                '.vue'
+            ],
+            alias: {
+                '@': __dirname + '/resourses'
+            }
+        },
+    })
     .browserSync({
-       proxy: 'jiri.test'
+        proxy: 'jiri.test'
     });
 
 // Make Laravel Mix ignore .svgs
-Mix.listen('configReady', function (config) {
+Mix
+    .listen('configReady', function (config) {
         const rules = config.module.rules;
         const targetRegex = /(\.(png|jpe?g|gif)$|^((?!font).)*\.svg$)/;
 
@@ -33,12 +46,13 @@ Mix.listen('configReady', function (config) {
     });
 
 // Hande .svgs with html-loader instead
-mix.webpackConfig({
+mix
+    .webpackConfig({
         resolve: {
             modules: [
                 'node_modules',
-                path.resolve(__dirname, 'resources/Icons')
-            ]
+                path.resolve(__dirname, 'resources/assets/Icons')
+            ],
         },
         module: {
             rules: [{
@@ -47,4 +61,3 @@ mix.webpackConfig({
             }]
         }
     });
-
