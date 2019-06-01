@@ -29,10 +29,23 @@ html, body, #app{
 .heading3,
 .heading4{
   margin-bottom: 1em;
+  font-weight: 800;
 }
 main{
   margin-left: $asideNavWidth;
-  padding-top: $headerHeight;
+  padding: 2em;
+  position: relative;
+  //padding-top: $headerHeight;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $asideNavWidth;
+    background: $darkGreen;
+    z-index: -1;
+  }
 }
 .hidden {
 //  visibility: hidden;
@@ -43,23 +56,23 @@ main{
 .notEmpty{
   display: none;
 }
-.superGlobal{
-  padding-top: $headerHeight;
-  &__filter {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-    background-color: $black;
-  }
-  &__filter.is-active{
-    display: block;
-  }
-}
+//.superGlobal{
+//  padding-top: $headerHeight;
+//  &__filter {
+//    display: none;
+//    position: fixed;
+//    width: 100%;
+//    height: 100%;
+//    z-index: 1;
+//    top: 0;
+//    left: 0;
+//    opacity: 0.8;
+//    background-color: $black;
+//  }
+//  &__filter.is-active{
+//    display: block;
+//  }
+//}
 .contentView{
   padding: 1em;
   position: relative;

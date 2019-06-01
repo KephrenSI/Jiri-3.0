@@ -1,6 +1,6 @@
 <template>
-    <section class="container">
-        <h2 class="heading2 hidden" role="heading" aria-level="2">Projects</h2>
+    <section class="content">
+        <h2 class="heading2" role="heading" aria-level="2">Projects</h2>
         <div class="display-card">
             <button type="submit" class="display-card__button" @click="initAddProject">
                 Ajouter un projet

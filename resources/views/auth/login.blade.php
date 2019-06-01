@@ -1,73 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<section class="loginContainer">
+    <h2 class="heading2 hidden" role="heading" aria-level="2">Page de connexion</h2>
+    <div class="connexion">
+        <div class="logo">
+            <img class="intro__logo" src="../images/logoCouleur.png" alt="logo de l'application Jiri" height="60" width="120"/>
+            {{--<figcaption class="intro__slogan">{{ __('Votre cahier de cotation électronique !') }}</figcaption>--}}
+        </div>
+        <div class="card">
+            <div class="card__header">
+                <h3 class="heading3" role="heading" aria-level="3">{{ __('Connexion à votre compte') }}</h3>
+            </div>
+            <div class="card__body">
+                <form method="POST" action="{{ route('login') }}" class="form">
+                    @csrf
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                    <div class="labelInput">
+                        <label for="email" class="labelInput__label label">{{ __('Adresse mail') }}</label>
+                        <input id="email" type="email" class="labelInput__input input" name="email" value="{{ old('email') }}">
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    <div class="labelInput">
+                        <label for="password" class="labelInput__label label">{{ __('Mot de passe') }}</label>
+                        {{--<password-input></password-input>--}}
+                        <input id="password" type="password" class="labelInput__input input" name="password" value="{{ old('password') }}">
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <span class="loginErrors">
+                        {{ $errors->first() }}
+                    </span>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="labelInput rememberMe">
+                        <input class="labelInput__input--checkbox input--checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="labelInput__label--checkbox label--checkbox" for="remember">
+                            {{ __('Se souvenir de moi') }}
+                        </label>
+                    </div>
+
+                    @if (Route::has('password.request'))
+                        <div class="labelInput passwordLost">
+                            <a class="labelInput__link" href="{{ route('password.request') }}">
+                                {{ __('Mot de passe oublié ?') }}
+                            </a>
                         </div>
+                    @endif
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    <div class="labelInput">
+                        <button type="submit" class="labelInput__button">
+                            {{ __('Connexion') }}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
+
     </div>
-</div>
+    <div class="about">
+        <div class="about__filter">
+            <span class="notEmpty">&nbsp;</span>
+        </div>
+
+        <div class="about__info">
+            <h3 class="heading3" role="heading" aria-level="3">{{ __('Salut l\'ami!') }}</h3>
+            <p class="about__info--text">
+                Jiri est une application qui permet de tenir un jury. Par exemple, les cours de Design Web du 2ème bloc et de Projets Web du 3ème bloc du bachelier en infographie organisé à la Haute École de la Province de Liège se concluent par des jurys lors desquels les travaux des étudiants sont évalués par des externes.
+            </p>
+        </div>
+    </div>
+</section>
 @endsection

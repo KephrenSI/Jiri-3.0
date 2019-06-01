@@ -3,13 +3,14 @@
 $body-bg: #ffffff;
 
 // Typography
-$font-family-sans-serif: "Rubik", sans-serif;
+$font-family-Rubik: "Rubik", sans-serif;
+$font-family-Raleway: "Raleway", sans-serif;
 $font-size-base: 16;
 $line-height-base: 1.6;
 
 
 $h1: 3.052em;
-$subH1: 2.441em;
+$subH1: 2.241em;
 $h2: 1.953em;
 $subH2: 1.563em;
 $h3: 1.25em;
@@ -33,9 +34,9 @@ $cyan: #6cb2eb;
 
 $lightGreen: #38EF7D;
 $darkGreen: #11998E;
-$lightGrey: #F8F8F8;
+$lightGrey: #E8E8E8;
+$grey: #CCCCCC;
 $darkGrey: #A4A4A4;
-$grey: #E8E8E8;
 $white: #FFFFFF;
 $black: #4A4A4A;
 
@@ -43,5 +44,5 @@ $black: #4A4A4A;
 $headerHeight: 80px;
 $asideNavMarginTop: calc(#{$headerHeight} + #{$text});
 
-$asideNavWidth: 250px;
+$asideNavWidth: 280px;
 $mainMarginLeft: $asideNavWidth;

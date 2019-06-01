@@ -65,7 +65,7 @@
         },
         methods: {
             closeCard() {
-                $(".card").removeClass("is-active");
+                $(".card").removeClass("is-active").reload;
             },
             updateProject(id) {
                 axios.patch(`api/projects/${id}`, this.updateProjectData)
@@ -75,17 +75,6 @@
                     .catch(error => {
                         console.log(error);
                     });
-
-//                axios.post('api/projects', this.project)
-//                    .then(response => {
-//                        this.projects.push(response.data);
-//                        console.log(response.data);
-//                        this.reset();
-//                        this.closeCard();
-//                    })
-//                    .catch(error => {
-//                        console.log(error);
-//                    });
             },
         },
     }

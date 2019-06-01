@@ -1,6 +1,6 @@
 <template>
-    <section class="container">
-        <h2 class="heading2 hidden" role="heading" aria-level="2">Students</h2>
+    <section class="content">
+        <h2 class="heading2" role="heading" aria-level="2">Students</h2>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

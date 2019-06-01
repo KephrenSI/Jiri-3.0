@@ -1,10 +1,16 @@
 <template>
-    <nav class="asideLeft fixed-top">
+    <section class="asideLeft fixed-top">
+        <div class="asideLeft__filter">
+            <span class="notEmpty">&nbsp;</span>
+        </div>
         <h2 class="heading2 hidden" role="heading" aria-level="2">Main navigation</h2>
+        <img class="logo" :src="images.logo.url" :alt="images.logo.name" height="80" width="160"/>
+
         <div class="user">
-            <img v-for="image in images" :src="image.url" :alt="image.name" class="user__userPic" width="50" height="50">
+            <img :src="images.userProfil.url" :alt="images.userProfil.name" class="user__userPic" width="50" height="50">
             <div class="user__userInfos">
-                <p class="user__userInfos--name">Képhren Simonis</p>
+                <p class="user__userInfos--name">{{ user.name }}</p>
+                <p class="user__userInfos--email">{{ user.email }}</p>
                 <p class="user__userInfos--company">Hepl</p>
             </div>
             <div class="user__links">
@@ -22,7 +28,6 @@
         </div>
 
         <nav>
-
             <ul class="asideNav">
                 <li class="asideNav__el"
                     v-for="routes in links"
@@ -33,13 +38,13 @@
                                  class="asideNav__el--link"
                                  exact
                     >
-                        <div v-html="routes.icons" class="asideNav__el--icon" ></div>
+                        <div v-html="routes.icons" class="icon" ></div>
                         {{routes.text}}
                     </router-link>
                 </li>
             </ul>
         </nav>
-    </nav>
+    </section>
 </template>
 
 <script>
@@ -54,6 +59,9 @@
     export default {
         data() {
             return {
+                user: {
+                    name: '',
+                },
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 icons: {
                     logout: logout,
@@ -90,12 +98,16 @@
                         icons: transfer,
                     }
                 ],
-                images : [
-                    {
-                        url : 'images/profil.png',
-                        name : 'photo de profil par défaut',
+                images : {
+                    userProfil: {
+                        url: 'images/profil.png',
+                        name: 'photo de profil par défaut',
                     },
-                ]
+                    logo: {
+                        url: 'images/logoBlanc.png',
+                        name: 'logo de l\'application Jiri',
+                    },
+                }
             }
         },
         computed: {
@@ -107,7 +119,20 @@
         methods:{
             logout(){
                 document.getElementById('logout-form').submit()
-            }
+            },
+            currentUser() {
+                axios.get('api/user')
+                    .then(response => {
+                        this.user = response.data;
+                        console.log(response.data)
+                    })
+                    .catch( error => {
+                        console.log(error);
+                    });
+            },
+        },
+        created() {
+            this.currentUser();
         },
         mounted() {
             console.log('SideabarMenuLarge mounted.')

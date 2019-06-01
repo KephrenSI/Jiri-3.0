@@ -1,10 +1,10 @@
 <template>
     <li class="list__el">
         <p class="list__el--infos list__el--name">
-            {{ project.name }}
+            {{ name }}
         </p>
         <p class="list__el--infos list__el--description">
-            {{ project.description }}
+            {{ description }}
         </p>
         <div class="list__el--infos list__el--modify" @click="initUpdateProject()">
             <span class="notEmpty">&nbsp;</span>
@@ -44,10 +44,12 @@
             }
         },
         methods: {
-            initUpdateProject(index) {
+            initUpdateProject() {
                 this.errors = [];
                 $("#updateProjectCard").addClass("is-active");
                 this.updateProjectData();
+                console.log(this.updateProjectData);
+                console.log(this.project);
             },
             initDeleteProject() {
                 this.errors = [];
