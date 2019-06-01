@@ -20,11 +20,11 @@
     top: 0;
     left: 0;
     opacity: 0.9;
-    background: #eaeaea;
-    background: -moz-linear-gradient(45deg, #eaeaea 20%, #8e8e8e 100%);
-    background: -webkit-linear-gradient(45deg, #eaeaea 20%, #8e8e8e 100%);
-    background: linear-gradient(45deg, #eaeaea 20%, #8e8e8e 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#8e8e8e', GradientType=1);
+    background: #f8f8f8;
+    background: -moz-linear-gradient(45deg, #f8f8f8 20%, #e3e3e3 100%);
+    background: -webkit-linear-gradient(45deg, #f8f8f8 20%, #e3e3e3 100%);
+    background: linear-gradient(45deg, #f8f8f8 20%, #e3e3e3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#e3e3e3', GradientType=1);
   }
   .logo{
     margin: 0 auto 2em;
@@ -49,7 +49,7 @@
       height: auto;
       padding: 5px;
       border-radius: 50%;
-      border: 2px solid $lightGrey;
+      border: 2px solid $white;
       margin-right: 5%;
     }
     &__userInfos {
@@ -57,8 +57,14 @@
       display: flex;
       flex-wrap: wrap;
       &--name {
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
         font-size: $h3;
+        width: 100%;
+        line-height: 1.2em;
+      }
+      &--email {
+        margin-bottom: 1em;
+        font-size: $subText;
         width: 100%;
         line-height: 1.2em;
       }
@@ -78,20 +84,20 @@
       justify-content: space-between;
       &--logout {
         display: flex;
-        color: $black;
-        fill: $black;
+        color: $grey;
+        fill: $grey;
         transition: all 0.5s ease-in-out;
         font-weight: 100;
         &:hover,
         &:focus {
-          color: black;
+          color: $white;
           text-decoration: none;
         }
         &:hover svg,
         &:focus svg {
           margin-left: -0.3em;
           margin-right: 0.5em;
-          fill: black;
+          fill: $white;
         }
         svg {
           vertical-align: top;
@@ -107,12 +113,12 @@
       &--modify {
         padding: 0.5em;
         text-align: right;
-        color: $black;
+        color: $grey;
         font-weight: 100;
         transition: all 0.5s ease-in-out;
         &:hover,
         &:focus {
-          color: black;
+          color: $white;
           text-decoration: none;
         }
       }
@@ -139,7 +145,7 @@
         }
         &:hover,
         &:focus {
-          color: $lightGrey;
+          color: $white;
           text-decoration: none;
           background-color: $darkGreen;
         }
@@ -167,7 +173,7 @@
         //}
         &:hover div,
         &:focus div {
-          fill: $lightGrey;
+          fill: $white;
         }
       }
     }

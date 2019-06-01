@@ -1,7 +1,7 @@
 <template>
     <div class="searchForm__labelInput">
         <label for="search" class="searchForm__labelInput--label label ">Rechercher</label>
-        <input @input='searchProject()' v-model="search" id="search" type="search" class="searchForm__labelInput--input input" name="search" value="">
+        <input @input='searchProject()' v-model="search" id="search" type="text" class="searchForm__labelInput--input input" name="search" value="" autocomplete="off">
         <!--<div class="" v-html="icons.loupe"></div>-->
     </div>
 </template>

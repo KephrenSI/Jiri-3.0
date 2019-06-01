@@ -7,6 +7,12 @@
         <projects-delete :projects="projects"></projects-delete>
         <projects-search></projects-search>
 
+        <div class="display-card">
+            <button type="submit" class="display-card__button" @click="initAddProject">
+                Ajouter un projet
+            </button>
+        </div>
+
         <ul class="list">
             <projects-item
                     v-for="project in filteredProjects"
@@ -53,6 +59,9 @@
             console.log('salut');
         },
         methods: {
+            initAddProject() {
+                $("#addProjectCard").addClass("is-active");
+            },
             readProjects() {
                 axios.get('api/projects')
                     .then(response => {

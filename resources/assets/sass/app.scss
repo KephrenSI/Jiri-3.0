@@ -35,16 +35,18 @@ main{
   margin-left: $asideNavWidth;
   padding: 2em;
   position: relative;
+  background-attachment: fixed;
   //padding-top: $headerHeight;
   &:before{
     content: '';
-    position: absolute;
+    //position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: $asideNavWidth;
     background: $darkGreen;
     z-index: -1;
+    position: fixed;
   }
 }
 .hidden {
@@ -55,6 +57,11 @@ main{
 }
 .notEmpty{
   display: none;
+}
+.content{
+  .heading2{
+    color: $white;
+  }
 }
 //.superGlobal{
 //  padding-top: $headerHeight;

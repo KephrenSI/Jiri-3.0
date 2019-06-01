@@ -3,16 +3,21 @@
         <p class="list__el--infos list__el--name">
             {{ name }}
         </p>
-        <p class="list__el--infos list__el--description">
-            {{ description }}
-        </p>
-        <div class="list__el--infos list__el--modify" @click="initUpdateProject()">
-            <span class="notEmpty">&nbsp;</span>
-            <div class="" v-html="icons.design"></div>
+        <div class="list__el--infos list__el--description">
+            <p>{{ description }}</p>
         </div>
-        <div class="list__el--infos list__el--delete" @click="initDeleteProject()">
-            <span class="notEmpty">&nbsp;</span>
-            <div class="" v-html="icons.trash"></div>
+        <div class="list__el--infos list__el--more" @click="showDropDown=!showDropDown">
+            °°°
+        </div>
+        <div v-if="showDropDown" class="button-option">
+            <div class="button-option--modify" @click="initUpdateProject()">
+                <span class="notEmpty">&nbsp;</span>
+                <div class="" v-html="icons.design"></div>
+            </div>
+            <div class="button-option--delete" @click="initDeleteProject()">
+                <span class="notEmpty">&nbsp;</span>
+                <div class="" v-html="icons.trash"></div>
+            </div>
         </div>
     </li>
 </template>
@@ -31,8 +36,10 @@
                 required:true,
             },
         },
+        template: "#dropdown",
         data(){
             return {
+                showDropDown: false,
                 icons: {
                     trash: trash,
                     design: design,
@@ -43,7 +50,19 @@
                 'description': this.project.description,
             }
         },
+        created() {
+            let self = this;
+
+            window.addEventListener('click', function(e){
+                if (!self.$el.contains(e.target)){
+                    self.showDropDown = false
+                }
+            })
+        },
         methods: {
+            initOptions() {
+                $(".button-option").addClass("is-active");
+            },
             initUpdateProject() {
                 this.errors = [];
                 $("#updateProjectCard").addClass("is-active");

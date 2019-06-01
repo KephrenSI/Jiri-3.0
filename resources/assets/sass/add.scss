@@ -7,6 +7,7 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  max-width: 640px;
   width: 80%;
   z-index: 3;
 }
@@ -43,12 +44,12 @@
     &:last-child{
       width: 100%;
     }
-    &:nth-child(2n+2){
-      margin-left: 5%;
-    }
+    //&:nth-child(2n+2){
+    //  margin-left: 5%;
+    //}
     &--label {
       position: absolute;
-      top: -0.8em;
+      top: -1.1em;
       left: 10px;
       background-color: $white;
       padding: 0px 10px;
@@ -60,18 +61,18 @@
       width: 100%;
       border: double 1px transparent;
       border-radius: 5px;
-      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
+      background-image: linear-gradient($white, $white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
       background-origin: border-box;
       background-clip: content-box, border-box;
     }
     &--textarea {
-      height: 40px;
+      height: 80px;
       text-indent: 10px;
       margin-bottom: 2em;
       width: 100%;
-      border: double 1px transparent;
+      border: double 0px transparent;
       border-radius: 5px;
-      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
+      background-image: linear-gradient($white, $white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
       background-origin: border-box;
       background-clip: content-box, border-box;
     }
@@ -82,7 +83,7 @@
       width: 100%;
       border: double 2px transparent;
       border-radius: 5px;
-      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
+      background-image: linear-gradient($white, $white), radial-gradient(circle at top left, #11998e 0%, #38ef7d 100%);
       background-origin: border-box;
       background-clip: content-box, border-box;
     }
