@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Student;
+use App\Jiries;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
-class StudentController extends Controller
+class JiriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::all();
+        return Jiries::all();
     }
 
     /**
@@ -37,22 +36,24 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:25',
-            'email' => 'required|email|max:60|unique:users|unique:students',
+            'course_name'  => 'required|max:25',
+            'academic_year' => 'required|max:4|min:4',
+            'exam_session' => 'required',
+            'date_event' => 'required',
         ]);
 
-        $student = Student::create($data);
+        $jiries = Jiries::create($data);
 
-        return response()->json($student,201);
+        return response()->json($jiries,201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Jiries  $jiries
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Jiries $jiries)
     {
         //
     }
@@ -60,10 +61,10 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Jiries  $jiries
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Jiries $jiries)
     {
         //
     }
@@ -72,39 +73,37 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  \App\Jiries  $jiries
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Jiries $jiries)
     {
         $this->validate($request, [
-            'name' => 'required|max:25',
-            'email' => [
-                'required',
-                'email',
-                'max:60',
-                Rule::unique('students', 'email')->ignore($student->id),
-                Rule::unique('users', 'email')->ignore($student->id),
-            ],
+            'course_name'  => 'required|max:25',
+            'academic_year' => 'required|max:4|min:4',
+            'exam_session' => 'required',
+            'date_event' => 'required',
         ]);
 
-        $student = Student::findOrFail(request('id'));
-        $student->update([
-            'name'=> request('name'),
-            'email'=> request('email'),
+        $jiries = Jiries::findOrFail(request('id'));
+        $jiries->update([
+            'course_name'  => 'required|max:25',
+            'academic_year' => 'required|max:4|min:4',
+            'exam_session' => 'required',
+            'date_event' => 'required',
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Jiries  $jiries
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Jiries $jiries)
     {
-        $student->delete();
+        $jiries->delete();
 
-        return response()->json(['message' => 'Deleted student item'], 200);
+        return response()->json(['message' => 'Deleted jiries item'], 200);
     }
 }

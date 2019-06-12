@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -45,16 +46,14 @@ class UserController extends Controller
         $password = User::passwordAuto();
 
         $user = new User();
-        $user->name  = $request->name;
-        $user->email = $request->email;
-        $user->agency = $request->agency;
+        $user->name  = request('name');
+        $user->email = request('email');
+        $user->agency = request('agency');
         $user->is_admin = 0;
         $user->is_active = 1;
         $user->password = $password;
 
-        $user->save();
-
-//        $user = User::create($data);
+        $user->create();
 
         return response()->json($user,201);
     }
@@ -88,20 +87,26 @@ class UserController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
-        $this->validate($request, [
+        $this->validate($request,[
             'name' => 'required|max:25',
-            'email' => 'required|email|max:60',
+            'email' => [
+                'required',
+                'email',
+                'max:60',
+                Rule::unique('users', 'email')->ignore($id),
+                Rule::unique('students', 'email')->ignore($id),
+            ],
             'agency' => 'max:20',
         ]);
 
-        $user->name = request('name');
-        $user->email = request('email');
-        $user->agency = request('agency');
-        $user->save();
-
-        return response()->json($user,200);
+        $user = User::findOrFail(request('id'));
+        $user->update([
+            'name'=> request('name'),
+            'email'=> request('email'),
+            'agency'=> request('agency'),
+        ]);
     }
 
     /**

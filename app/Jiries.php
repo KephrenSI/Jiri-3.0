@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Student extends Model
+class Jiries extends Model
 {
     public $timestamps = true;
     /**
@@ -14,16 +14,17 @@ class Student extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'is_active'
+        'course_name',
+        'academic_year',
+        'exam_session',
+        'date_event'
     ];
     protected $hidden = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-    protected $table = 'students';
+    protected $table = 'jiries';
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];

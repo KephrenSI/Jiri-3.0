@@ -36,8 +36,8 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:15',
-            'description' => 'required|max:150',
+            'name' => 'required|max:25',
+            'description' => 'required|max:255',
         ]);
 
         $project = Project::create($data);
@@ -77,8 +77,8 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $this->validate($request, [
-            'name' => 'required|max:15',
-            'description' => 'required|max:150',
+            'name' => 'required|max:25',
+            'description' => 'required|max:255',
         ]);
 
         $project->name = request('name');
