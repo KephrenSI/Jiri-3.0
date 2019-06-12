@@ -77,7 +77,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $this->validate($request, [
-            'name'        => 'required|max:15',
+            'name' => 'required|max:15',
             'description' => 'required|max:150',
         ]);
 

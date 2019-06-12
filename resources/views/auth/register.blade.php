@@ -37,7 +37,7 @@
                     <div class="labelInput">
                         <label for="password-confirm" class="labelInput__label label">{{ __('Confirmer le mot de passe') }}</label>
                         {{--<confirm-password-input></confirm-password-input>--}}
-                        <input id="password-confirm" type="password" class="labelInput__input input" name="password-confirm" value="{{ old('password-confirm') }}">
+                        <input id="password-confirm" type="password" class="labelInput__input input" name="password_confirmation" value="{{ old('password-confirm') }}">
                     </div>
 
                     <span class="loginErrors">

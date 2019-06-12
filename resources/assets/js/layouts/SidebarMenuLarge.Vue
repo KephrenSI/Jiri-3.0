@@ -11,7 +11,7 @@
             <div class="user__userInfos">
                 <p class="user__userInfos--name">{{ user.name }}</p>
                 <p class="user__userInfos--email">{{ user.email }}</p>
-                <p class="user__userInfos--company">Hepl</p>
+                <p class="user__userInfos--company">{{ user.agency }}</p>
             </div>
             <div class="user__links">
                 <a href="" class="user__links--logout" @click.prevent="logout()">

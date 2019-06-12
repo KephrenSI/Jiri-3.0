@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class User extends Authenticatable
@@ -21,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'agency',
+        'is_active'
     ];
 
     /**
@@ -32,6 +36,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    protected $table = 'users';
+
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that should be cast to native types.
@@ -41,4 +49,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function passwordAuto()
+    {
+        $password = str_random(6);
+        return bcrypt('azerty');
+    }
 }

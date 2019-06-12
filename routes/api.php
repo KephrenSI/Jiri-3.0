@@ -31,6 +31,16 @@ use Illuminate\Http\Request;
         Route::post('/projects', 'ProjectController@store');
         Route::patch('/projects/{project}', 'ProjectController@update');
         Route::delete('/projects/{project}', 'ProjectController@destroy');
+
+        Route::get('/students', 'StudentController@index');
+        Route::post('/students', 'StudentController@store');
+        Route::patch('/students/{student}', 'StudentController@update');
+        Route::delete('/students/{student}', 'StudentController@destroy');
+
+        Route::get('/judges', 'UserController@index');
+        Route::post('/judges', 'UserController@store');
+        Route::patch('/judges/{judge}', 'UserController@update');
+        Route::delete('/judges/{judge}', 'UserController@destroy');
     });
 
 //});
